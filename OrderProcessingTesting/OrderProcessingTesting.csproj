@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3F822218-C8DF-489F-833B-E4D17A3498E1}</ProjectGuid>
+    <ProjectGuid>{AF5DEDBA-8EC4-4191-86FD-4D9A43152E3A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OrderProcessingTesting</RootNamespace>
@@ -49,15 +49,15 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="tstOrderProcessing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tstOrderProcessing.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj">
-      <Project>{E32146CF-EC09-4709-9881-42ADF1B0735B}</Project>
+      <Project>{88AA79D5-6912-4969-A3BA-41516852276B}</Project>
       <Name>ClassLibrary</Name>
     </ProjectReference>
   </ItemGroup>
