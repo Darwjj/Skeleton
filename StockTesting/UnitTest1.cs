@@ -4,11 +4,15 @@ using System;
 namespace StockTesting
 {
     [TestClass]
-    public class UnitTest1
+    public class tstStock
     {
         [TestMethod]
-        public void TestMethod1()
+   
+           public void InstanceOK()
         {
+            clsStock AStock = new clsStock();
+            Assert.IsNotNull(AStock);
+        }
         }
     }
-}
+
