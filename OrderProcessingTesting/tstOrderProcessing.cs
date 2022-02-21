@@ -33,7 +33,7 @@ namespace OrderProcessingTesting
             string Error = "";
             string TestData = nDescription;
             Error = AOrderProcessing.Valid(nDescription);
-            Assert.AreEqual(Error, "");
+            Assert.AreEqual(Error, "Description cannot be more than 50 characters");
         }
 
         [TestMethod]
@@ -69,20 +69,6 @@ namespace OrderProcessingTesting
             //test to see that the two values are the same
             Assert.AreEqual(AOrderProcessing.DateAdded, TestData);
         }
-
-        [TestMethod]
-        public void OrderNoOK()
-        {
-            //create an instance of the class we want to create
-            clsOrderProcessing AOrderProcessing = new clsOrderProcessing();
-            //create some test data to assign to the property
-            string TestData = "1";
-            //assign the data to the property
-            AOrderProcessing.OrderNo = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(AOrderProcessing.OrderNo, TestData);
-        }
-
 
     }
 }
