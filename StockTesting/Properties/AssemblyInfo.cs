@@ -23,5 +23,11 @@ namespace StockTesting
 {
     class clsStock
     {
+        public string ProductCategory { get; internal set; }
+        public string Quantity { get; internal set; }
+        public string Date { get; internal set; }
+        public string Available { get; internal set; }
+        public string ProductName { get; internal set; }
+        public string StockId { get; internal set; }
     }
 }
