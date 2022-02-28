@@ -22,8 +22,8 @@ namespace OrderProcessingTesting
         {
             clsOrderProcessing AOrderProcessing = new clsOrderProcessing();
             string TestData = nDescription;
-            AOrderProcessing.Description = TestData;
-            Assert.AreEqual(AOrderProcessing.Description, TestData);
+            AOrderProcessing.OrderDescription = TestData;
+            Assert.AreEqual(AOrderProcessing.OrderDescription, TestData);
         }
 
         [TestMethod]
@@ -65,9 +65,9 @@ namespace OrderProcessingTesting
             //create some test data to assign to the property
             DateTime TestData = DateTime.Now.Date;
             //assign the data to the property
-            AOrderProcessing.DateAdded = TestData;
+            AOrderProcessing.OrderDate = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AOrderProcessing.DateAdded, TestData);
+            Assert.AreEqual(AOrderProcessing.OrderDate, TestData);
         }
 
     }

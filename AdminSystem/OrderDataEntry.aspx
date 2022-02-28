@@ -14,24 +14,27 @@
             <asp:TextBox ID="textOrderId" runat="server" Height="25px" Width="141px"></asp:TextBox>
             <p>
                 <asp:Label ID="lblOrderDescription" runat="server" Text="Order Description"></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox1" runat="server" Height="25px" Width="141px"></asp:TextBox>
+&nbsp;<asp:TextBox ID="textOrderDescription" runat="server" Height="25px" Width="141px" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
             </p>
 &nbsp;<asp:Label ID="lblOrderDate" runat="server" Text="Order Date"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox2" runat="server" Height="25px" Width="141px"></asp:TextBox>
+            <asp:TextBox ID="textOrderDate" runat="server" Height="25px" Width="141px" OnTextChanged="TextOrderDate_TextChanged"></asp:TextBox>
             <br />
             <br />
             <asp:Label ID="lblPrice" runat="server" Text="Price"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox4" runat="server" Height="25px" Width="141px"></asp:TextBox>
+            <asp:TextBox ID="textPrice" runat="server" Height="25px" Width="141px"></asp:TextBox>
             <br />
             <br />
             <asp:Label ID="lblOrderStatus" runat="server" Text="Order Status"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox5" runat="server" Height="25px" Width="141px"></asp:TextBox>
+            <asp:TextBox ID="textOrderStatus" runat="server" Height="25px" Width="141px"></asp:TextBox>
             <br />
             <br />
-            <asp:CheckBox ID="chkOrderAvailable" runat="server" Text="Available" />
+            <br />
+            <asp:Label ID="lblOrderAvailable" runat="server" Text="Order Available"></asp:Label>
+&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="textOrderAvailable" runat="server" Height="25px" Width="141px"></asp:TextBox>
             <br />
             <br />
             <asp:Label ID="lblError" runat="server"></asp:Label>

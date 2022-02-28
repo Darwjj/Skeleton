@@ -1,3 +1,4 @@
+using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -18,3 +19,33 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+namespace OrderProcessingTesting
+{
+    class clsOrderProcessing
+    {
+        public string OrderId { get; internal set; }
+        public string OrderDescription { get; internal set; }
+        public DateTime OrderDate { get; internal set; }
+        public string OrderAvailable { get; internal set; }
+        public string Price { get; internal set; }
+        public string OrderStatus { get; internal set; }
+
+        internal string Valid(string nDescription)
+        {
+            {
+                if (nDescription.Length < 1) {
+                    return "Description cannot be blank";
+                }
+                if (nDescription.Length > 1) {
+
+                    return "Description cannot be more than 50 characters";
+                }
+                else {
+
+                    return "";
+                }
+            }
+        }
+    }
+}

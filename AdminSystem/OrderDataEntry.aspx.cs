@@ -19,9 +19,24 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsOrderProcessing AOrderProcessing = new clsOrderProcessing();
         //capture the number of the order
         AOrderProcessing.OrderNo = textOrderId.Text;
+        AOrderProcessing.DateAdded = textOrderDate.Text;
+        AOrderProcessing.OrderDescription = textOrderDescription.Text;
+        AOrderProcessing.OrderAvailable = textOrderAvailable.Text;
+        AOrderProcessing.OrderStatus = textOrderStatus.Text;
+        AOrderProcessing.Price = textPrice.Text;
         //store number of orders in the session object
         Session["AOrderProcessing"] = AOrderProcessing;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
+    }
+
+    protected void TextBox1_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void TextOrderDate_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }
