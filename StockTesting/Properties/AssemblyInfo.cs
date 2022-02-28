@@ -18,3 +18,16 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+namespace StockTesting
+{
+    class clsStock
+    {
+        public string ProductCategory { get; internal set; }
+        public string Quantity { get; internal set; }
+        public string Date { get; internal set; }
+        public string Available { get; internal set; }
+        public string ProductName { get; internal set; }
+        public string StockId { get; internal set; }
+    }
+}
