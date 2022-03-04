@@ -5,10 +5,10 @@ namespace ClassLibrary
     public class clsOrderProcessing
     {
         public string DateAdded;
-        public string OrderNo;
+        public int OrderNo;
         public string OrderDescription;
-        public string OrderAvailable;
-        public string Price;
+        public bool OrderAvailable;
+        public decimal Price;
         public string OrderStatus;
 
         public string Valid(string nDescription)

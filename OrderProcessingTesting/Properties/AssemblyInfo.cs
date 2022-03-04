@@ -24,11 +24,11 @@ namespace OrderProcessingTesting
 {
     class clsOrderProcessing
     {
-        public string OrderId { get; internal set; }
+        public int OrderId { get; internal set; }
         public string OrderDescription { get; internal set; }
         public DateTime OrderDate { get; internal set; }
-        public string OrderAvailable { get; internal set; }
-        public string Price { get; internal set; }
+        public bool OrderAvailable { get; internal set; }
+        public decimal Price { get; internal set; }
         public string OrderStatus { get; internal set; }
 
         internal string Valid(string nDescription)

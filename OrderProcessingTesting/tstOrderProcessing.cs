@@ -70,6 +70,74 @@ namespace OrderProcessingTesting
             Assert.AreEqual(AOrderProcessing.OrderDate, TestData);
         }
 
+        [TestMethod]
+
+        public void ActivePropertyOK()
+
+        {
+            //create an instance of the class we want to create
+            clsOrderProcessing AOrderProcessing = new clsOrderProcessing();
+            //create some test data to assign to the property
+            Boolean TestData = true;
+            //assign the data to the property
+            AOrderProcessing.OrderAvailable = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AOrderProcessing.OrderAvailable, TestData);
+
+        }
+
+        [TestMethod]
+        public void OrderIdOK()
+        {
+            //create an instance of the class we want to create
+            clsOrderProcessing AOrderProcessing = new clsOrderProcessing();
+            //create some test data to assign to the property
+            Int32 TestData = 1;
+            //assign the data to the property
+            AOrderProcessing.OrderId = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AOrderProcessing.OrderId, TestData);
+        }
+
+        [TestMethod]
+
+        public void PriceOK()
+        {
+            clsOrderProcessing AOrderProcessing = new clsOrderProcessing();
+
+            Int32 TestData = 1;
+
+            AOrderProcessing.Price = TestData;
+
+            Assert.AreEqual(AOrderProcessing.Price, TestData);
+        }
+
+        [TestMethod]
+
+        public void PostCodePropertyOK()
+
+        {
+            clsOrderProcessing AOrderProcessing = new clsOrderProcessing();
+
+
+            string TestData = "Ready";
+
+
+            AOrderProcessing.OrderStatus = TestData;
+
+
+            Assert.AreEqual(AOrderProcessing.OrderStatus, TestData);
+
+        }
+
+
+
+
+
+
+
+
+
     }
 }
 
