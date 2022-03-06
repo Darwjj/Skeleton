@@ -58,7 +58,7 @@ namespace OrderProcessingTesting
         }
 
         [TestMethod]
-        public void DateAddedOrderK()
+        public void OrderDateOK()
         {
             //create an instance of the class we want to create
             clsOrderProcessing AOrderProcessing = new clsOrderProcessing();
@@ -72,7 +72,7 @@ namespace OrderProcessingTesting
 
         [TestMethod]
 
-        public void ActivePropertyOK()
+        public void OrderAvailableOK()
 
         {
             //create an instance of the class we want to create
@@ -105,16 +105,16 @@ namespace OrderProcessingTesting
         {
             clsOrderProcessing AOrderProcessing = new clsOrderProcessing();
 
-            Int32 TestData = 1;
+            Double TestData = 1;
 
-            AOrderProcessing.Price = TestData;
+            AOrderProcessing.Price = (double)(decimal)TestData;
 
             Assert.AreEqual(AOrderProcessing.Price, TestData);
         }
 
         [TestMethod]
 
-        public void PostCodePropertyOK()
+        public void OrderStatusOK()
 
         {
             clsOrderProcessing AOrderProcessing = new clsOrderProcessing();

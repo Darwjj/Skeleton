@@ -31,10 +31,7 @@
             <asp:TextBox ID="textOrderStatus" runat="server" Height="25px" Width="141px"></asp:TextBox>
             <br />
             <br />
-            <br />
-            <asp:Label ID="lblOrderAvailable" runat="server" Text="Order Available"></asp:Label>
-&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="textOrderAvailable" runat="server" Height="25px" Width="141px"></asp:TextBox>
+            <asp:CheckBox ID="chkAvailable" runat="server" Text="Available" />
             <br />
             <br />
             <asp:Label ID="lblError" runat="server"></asp:Label>

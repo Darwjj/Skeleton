@@ -18,10 +18,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new instance of clsOrderProcessing
         clsOrderProcessing AOrderProcessing = new clsOrderProcessing();
         //capture the number of the order
-        AOrderProcessing.OrderNo = textOrderId.Text;
-        AOrderProcessing.DateAdded = textOrderDate.Text;
+        AOrderProcessing.OrderId = textOrderId.Text;
+        AOrderProcessing.OrderDate = textOrderDate.Text;
         AOrderProcessing.OrderDescription = textOrderDescription.Text;
-        AOrderProcessing.OrderAvailable = textOrderAvailable.Text;
+        AOrderProcessing.OrderAvailable = chkAvailable.Checked;
         AOrderProcessing.OrderStatus = textOrderStatus.Text;
         AOrderProcessing.Price = textPrice.Text;
         //store number of orders in the session object

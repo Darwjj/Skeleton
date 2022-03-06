@@ -15,8 +15,8 @@ public partial class _1Viewer : System.Web.UI.Page
         //get the data from the session object
         AOrderProcessing = (clsOrderProcessing)Session["AOrderProcessing"];
         //display the order number on the page
-        Response.Write("Id" + " = " + AOrderProcessing.OrderNo + "<br><br>");
-        Response.Write("Date" + " = " + AOrderProcessing.DateAdded + "<br><br>");
+        Response.Write("Id" + " = " + AOrderProcessing.OrderId + "<br><br>");
+        Response.Write("Date" + " = " + AOrderProcessing.OrderDate + "<br><br>");
         Response.Write("Description" + " = " + AOrderProcessing.OrderDescription + "<br><br>");
         Response.Write("Price" + " = " + AOrderProcessing.Price + "<br><br>");
         Response.Write("Status" + " = " + AOrderProcessing.OrderStatus + "<br><br>");

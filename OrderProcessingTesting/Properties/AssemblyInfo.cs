@@ -24,12 +24,103 @@ namespace OrderProcessingTesting
 {
     class clsOrderProcessing
     {
-        public int OrderId { get; internal set; }
-        public string OrderDescription { get; internal set; }
-        public DateTime OrderDate { get; internal set; }
-        public bool OrderAvailable { get; internal set; }
-        public decimal Price { get; internal set; }
-        public string OrderStatus { get; internal set; }
+        private Int32 mOrderId;
+        public Int32 OrderId 
+         {
+            get 
+            {
+                //this line of code sent data out of the structure
+                return mOrderId;
+            }
+            set 
+            {
+                //this line of code allows data into the structure
+                mOrderId = value;
+            }
+        }
+        private string mOrderDescription;
+        public string OrderDescription 
+        {
+            get 
+            {
+                return mOrderDescription;
+
+            }
+            set 
+            {
+                mOrderDescription = value;
+
+            }
+        }
+        private DateTime mOrderDate;
+        public DateTime OrderDate 
+            {
+
+            get 
+            {
+                return mOrderDate;
+
+            }
+
+            set 
+            {
+                mOrderDate = value;
+
+            }
+        }
+
+        private Boolean mOrderAvailable;
+        public bool OrderAvailable 
+        {
+            get 
+            {
+                return mOrderAvailable;
+            }
+
+            set 
+            {
+                mOrderAvailable = value;
+            }
+        }
+        private Double mPrice;
+        public double Price 
+        {
+            get 
+            {
+                return mPrice;
+            }
+            set 
+            {
+                mPrice = value;
+            }
+
+        }
+        private string mOrderStatus;
+        public string OrderStatus 
+        {
+            get 
+            {
+                return mOrderStatus;
+            }
+            set 
+            {
+                mOrderStatus = value;
+            }
+        }
+
+        internal bool Find(int OrderId)
+        {
+            //set the private data members to the test data value
+            mOrderId = 21;
+            mOrderDate = Convert.ToDateTime("16/9/2015");
+            mOrderDescription = "Test Description";
+            mOrderAvailable = true;
+            mPrice = 1.0;
+            mOrderStatus = "Test Status";
+
+            //always return true
+            return true;
+        }
 
         internal string Valid(string nDescription)
         {

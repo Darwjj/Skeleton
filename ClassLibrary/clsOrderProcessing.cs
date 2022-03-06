@@ -4,11 +4,11 @@ namespace ClassLibrary
 {
     public class clsOrderProcessing
     {
-        public string DateAdded;
-        public int OrderNo;
+        public string OrderDate;
+        public string OrderId;
         public string OrderDescription;
         public bool OrderAvailable;
-        public decimal Price;
+        public string Price;
         public string OrderStatus;
 
         public string Valid(string nDescription)
