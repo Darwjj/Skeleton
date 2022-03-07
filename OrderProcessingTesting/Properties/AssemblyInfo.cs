@@ -108,18 +108,29 @@ namespace OrderProcessingTesting
             }
         }
 
-        internal bool Find(int OrderId)
+        public bool Find(int OrderId)
         {
-            //set the private data members to the test data value
-            mOrderId = 21;
-            mOrderDate = Convert.ToDateTime("16/9/2015");
-            mOrderDescription = "Test Description";
-            mOrderAvailable = true;
-            mPrice = 1.0;
-            mOrderStatus = "Test Status";
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderId", OrderId);
+            DB.Execute("sproc_tblOrderProcessing_FilterByOrderId");
+            if (DB.Count == 1) 
+            {
+                //set the private data members to the test data value
+                mOrderId = Convert.ToInt32(DB.DataTable.Rows[0]["OrderId"]);
+                mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
+                mOrderDescription = Convert.ToString(DB.DataTable.Rows[0]["OrderDescription"]);
+                mOrderAvailable = Convert.ToBoolean(DB.DataTable.Rows[0]["OrderAvailable"]);
+                mPrice = Convert.ToDouble(DB.DataTable.Rows[0]["Price"]);
+                mOrderStatus = Convert.ToString(DB.DataTable.Rows[0]["OrderStatus"]);
 
-            //always return true
-            return true;
+                //always return true
+                return true;
+            }
+            else 
+            {
+                return false;
+
+            }
         }
 
         internal string Valid(string nDescription)
