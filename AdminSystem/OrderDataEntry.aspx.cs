@@ -39,4 +39,21 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
 
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsOrderProcessing AOrderProcessing = new clsOrderProcessing();
+        Int32 OrderId;
+        Boolean Found = false;
+        OrderId = Convert.ToInt32(textOrderId.Text);
+        Found = AOrderProcessing.Find(OrderId);
+        if (Found == true)
+        {
+            textOrderDescription.Text = AOrderProcessing.OrderDescription;
+            textOrderDate.Text = AOrderProcessing.OrderDate;
+            textOrderStatus.Text = AOrderProcessing.OrderStatus;
+            textPrice.Text = AOrderProcessing.Price;
+            chkAvailable.Checked = AOrderProcessing.OrderAvailable;
+        }
+    }
 }

@@ -12,6 +12,7 @@
             <asp:Label ID="lblOrderId" runat="server" Text="Order Id"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="textOrderId" runat="server" Height="25px" Width="141px"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
             <p>
                 <asp:Label ID="lblOrderDescription" runat="server" Text="Order Description"></asp:Label>
 &nbsp;<asp:TextBox ID="textOrderDescription" runat="server" Height="25px" Width="141px" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>

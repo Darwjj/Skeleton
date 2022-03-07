@@ -2,6 +2,7 @@ using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using ClassLibrary;
 
 [assembly: AssemblyTitle("OrderProcessingTesting")]
 [assembly: AssemblyDescription("")]
@@ -108,7 +109,7 @@ namespace OrderProcessingTesting
             }
         }
 
-        public bool Find(int OrderId)
+        internal bool Find(int OrderId)
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@OrderId", OrderId);

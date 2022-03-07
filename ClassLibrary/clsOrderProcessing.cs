@@ -26,5 +26,10 @@ namespace ClassLibrary
                 return "";
             }
         }
+
+        public bool Find(int orderId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
