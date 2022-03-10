@@ -22,8 +22,8 @@ namespace OrderProcessingTesting
         {
             clsOrderProcessing AOrderProcessing = new clsOrderProcessing();
             string TestData = nDescription;
-            AOrderProcessing.Description = TestData;
-            Assert.AreEqual(AOrderProcessing.Description, TestData);
+            AOrderProcessing.OrderDescription = TestData;
+            Assert.AreEqual(AOrderProcessing.OrderDescription, TestData);
         }
 
         [TestMethod]
@@ -33,7 +33,7 @@ namespace OrderProcessingTesting
             string Error = "";
             string TestData = nDescription;
             Error = AOrderProcessing.Valid(nDescription);
-            Assert.AreEqual(Error, "");
+            Assert.AreEqual(Error, "Description cannot be more than 50 characters");
         }
 
         [TestMethod]
@@ -58,30 +58,84 @@ namespace OrderProcessingTesting
         }
 
         [TestMethod]
-        public void DateAddedOrderK()
+        public void OrderDateOK()
         {
             //create an instance of the class we want to create
             clsOrderProcessing AOrderProcessing = new clsOrderProcessing();
             //create some test data to assign to the property
             DateTime TestData = DateTime.Now.Date;
             //assign the data to the property
-            AOrderProcessing.DateAdded = TestData;
+            AOrderProcessing.OrderDate = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AOrderProcessing.DateAdded, TestData);
+            Assert.AreEqual(AOrderProcessing.OrderDate, TestData);
         }
 
         [TestMethod]
-        public void OrderNoOK()
+
+        public void OrderAvailableOK()
+
         {
             //create an instance of the class we want to create
             clsOrderProcessing AOrderProcessing = new clsOrderProcessing();
             //create some test data to assign to the property
-            string TestData = "1";
+            Boolean TestData = true;
             //assign the data to the property
-            AOrderProcessing.OrderNo = TestData;
+            AOrderProcessing.OrderAvailable = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AOrderProcessing.OrderNo, TestData);
+            Assert.AreEqual(AOrderProcessing.OrderAvailable, TestData);
+
         }
+
+        [TestMethod]
+        public void OrderIdOK()
+        {
+            //create an instance of the class we want to create
+            clsOrderProcessing AOrderProcessing = new clsOrderProcessing();
+            //create some test data to assign to the property
+            Int32 TestData = 1;
+            //assign the data to the property
+            AOrderProcessing.OrderId = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AOrderProcessing.OrderId, TestData);
+        }
+
+        [TestMethod]
+
+        public void PriceOK()
+        {
+            clsOrderProcessing AOrderProcessing = new clsOrderProcessing();
+
+            Double TestData = 1;
+
+            AOrderProcessing.Price = (double)(decimal)TestData;
+
+            Assert.AreEqual(AOrderProcessing.Price, TestData);
+        }
+
+        [TestMethod]
+
+        public void OrderStatusOK()
+
+        {
+            clsOrderProcessing AOrderProcessing = new clsOrderProcessing();
+
+
+            string TestData = "Ready";
+
+
+            AOrderProcessing.OrderStatus = TestData;
+
+
+            Assert.AreEqual(AOrderProcessing.OrderStatus, TestData);
+
+        }
+
+
+
+
+
+
+
 
 
     }

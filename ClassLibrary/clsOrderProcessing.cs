@@ -4,10 +4,12 @@ namespace ClassLibrary
 {
     public class clsOrderProcessing
     {
-        public DateTime DateAdded;
-        public string OrderNo;
-
-        public string Description { get; set; }
+        public string OrderDate;
+        public string OrderId;
+        public string OrderDescription;
+        public bool OrderAvailable;
+        public string Price;
+        public string OrderStatus;
 
         public string Valid(string nDescription)
         {
@@ -23,6 +25,11 @@ namespace ClassLibrary
 
                 return "";
             }
+        }
+
+        public bool Find(int orderId)
+        {
+            throw new NotImplementedException();
         }
     }
 }
