@@ -24,9 +24,9 @@ namespace SupplierTesting
             //create some test data
             Boolean TestData = true;
             //assign the data to the supplier
-            ASupplier.TestData = TestData;
+            ASupplier.ASupplierAvailability = TestData;
             //test to see if the two values are the same
-            Assert.AreEqual(ASupplier.TestData, TestData);
+            Assert.AreEqual(ASupplier.ASupplierAvailability, TestData);
         }
         [TestMethod]
         public void DateRegisteredSupplierOk()
@@ -37,10 +37,10 @@ namespace SupplierTesting
             //create some test data to assign to the supplier
             DateTime TestData = DateTime.Now.Date;
             //assign the data to the supplier
-            ASupplier.DateRegistered = TestData;
+            ASupplier.DateOfRegister = TestData;
 
             //test to see if the two values are the same
-            Assert.AreEqual(ASupplier.DateRegistered, TestData);
+            Assert.AreEqual(ASupplier.DateOfRegister, TestData);
         }
         [TestMethod]
         public void ASupplierNameOk()
@@ -52,10 +52,10 @@ namespace SupplierTesting
             //create some test data to assign to the supplier
             string name = "David";
             //assign the data to the supplier
-            ASupplier.Name = name;
+            ASupplier.ASupplierName = name;
 
             //test to see if the two values are the same
-            Assert.AreEqual(ASupplier.Name, name);
+            Assert.AreEqual(ASupplier.ASupplierName, name);
         }
         [TestMethod]
         public void ASupplierAddressOk()
@@ -66,10 +66,10 @@ namespace SupplierTesting
             //create some test data to assign to the supplier
             string Address = "Leicester";
             //assign the data to the supplier
-            ASupplier.Address = Address;
+            ASupplier.ASupplierAddress = Address;
 
             //test to see if the two values are the same
-            Assert.AreEqual(ASupplier.Address, Address);
+            Assert.AreEqual(ASupplier.ASupplierAddress, Address);
         }
         [TestMethod]
         public void ASupplierIdOk()
@@ -80,8 +80,8 @@ namespace SupplierTesting
             //create some test data to assign to the supplier
             int Id = 12;
             //assign the data to the supplier
-            ASupplier.Id = Id;
-            Assert.AreEqual(ASupplier.Id, Id);
+            ASupplier.ASupplierID = Id;
+            Assert.AreEqual(ASupplier.ASupplierID, Id);
         }
         [TestMethod]
         public void ASupplierEmailOk()
