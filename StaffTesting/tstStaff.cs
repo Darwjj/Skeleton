@@ -38,7 +38,7 @@ namespace StaffTesting
 
             Assert.AreEqual(Staff.Staff_FullName, TestData);
 
-        } 
+        }
 
 
 
@@ -139,5 +139,68 @@ namespace StaffTesting
             Assert.AreEqual(Staff.Staff_Salary, TestData);
 
         }
+
+        [TestMethod]
+
+        public void FindMethodOK()
+
+        {
+
+            clsStaff Staff = new clsStaff();
+
+            Boolean Found = false;
+            Int32 Staff_ID = 1;
+            Found = Staff.Find(Staff_ID);
+            Assert.IsTrue(Found);
+
+        }
+
+
+
+        [TestMethod]
+
+        public void TestStaffIDNotFound()
+
+        {
+            clsStaff Staff = new clsStaff();
+
+        Boolean Found = false;
+
+        Boolean OK = true;
+
+        Int32 Staff_ID = 1;
+
+        Found = Staff.Find(Staff_ID);
+
+        if (Staff.StaffID != 1)
+            {
+            OK = false;
+            }
+          Assert.IsTrue(OK);
+}
+
+
+        [TestMethod]
+
+        public void TestStaffStartDateFound()
+
+        {
+            clsStaff Staff = new clsStaff();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            Int32 Staff_ID = 1;
+
+            Found = Staff.Find(Staff_ID);
+
+            if (Staff.Staff_StartDate != Convert.ToDateTime("20/08/2020")) 
+                {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
     }
 }
