@@ -38,7 +38,7 @@ namespace StaffTesting
 
             Assert.AreEqual(Staff.Staff_FullName, TestData);
 
-        }
+        } 
 
 
 
