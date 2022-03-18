@@ -23,7 +23,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new instance of clsStaff
         clsStaff AStaff = new clsStaff();
         //capture all the attributes
-        AStaff.StaffID = Convert.ToInt32(txtStaffID.Text); 
+        AStaff.Staff_ID = Convert.ToInt32(txtStaffID.Text); 
         AStaff.Staff_FullName = txtStaffFullName.Text;
         AStaff.Staff_Gender = Convert.ToBoolean(ddlStaffGender.SelectedIndex);
         AStaff.Staff_Role = txtStaffRole.Text;

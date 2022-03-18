@@ -26,7 +26,7 @@ namespace StaffTesting
 
         [TestMethod]
 
-        public void FullNamePropertyOK()
+        public void Staff_FullNamePropertyOK()
 
         {
 
@@ -46,7 +46,7 @@ namespace StaffTesting
 
         [TestMethod]
 
-        public void StaffIDPropertyOK()
+        public void Staff_IDPropertyOK()
 
         {
 
@@ -54,9 +54,9 @@ namespace StaffTesting
 
             int TestData = 1;
 
-            Staff.StaffID = TestData;
+            Staff.Staff_ID = TestData;
 
-            Assert.AreEqual(Staff.StaffID, TestData);
+            Assert.AreEqual(Staff.Staff_ID, TestData);
 
         }
 
@@ -155,50 +155,152 @@ namespace StaffTesting
 
         }
 
-
-
-        [TestMethod]
-
-        public void TestStaffIDNotFound()
-
-        {
-            clsStaff Staff = new clsStaff();
-
-        Boolean Found = false;
-
-        Boolean OK = true;
-
-        Int32 Staff_ID = 1;
-
-        Found = Staff.Find(Staff_ID);
-
-        if (Staff.StaffID != 1)
-            {
-            OK = false;
-            }
-          Assert.IsTrue(OK);
-}
-
+        //================================================================
 
         [TestMethod]
 
-        public void TestStaffStartDateFound()
+        public void TestStaff_IDNotFound()
 
         {
+            //create an instance of the class we want to create
             clsStaff Staff = new clsStaff();
-
+            //boolean variable to store the result of the search
             Boolean Found = false;
-
+            //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
-
+            //create some test data to use with the method
             Int32 Staff_ID = 1;
-
+            //invoke the method
             Found = Staff.Find(Staff_ID);
-
-            if (Staff.Staff_StartDate != Convert.ToDateTime("20/08/2020")) 
-                {
+            //check the Staff Id
+            if (Staff.Staff_ID != 1) {
                 OK = false;
             }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        //======================================================================
+
+        [TestMethod]
+
+        public void TestStaff_FullNameNotFound()
+
+        {
+            //create an instance of the class we want to create
+            clsStaff Staff = new clsStaff();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 Staff_ID = 1;
+            //invoke the method
+            Found = Staff.Find(Staff_ID);
+            //check the Staff full name
+            if (Staff.Staff_FullName != "Kirtan Patel") {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        //========================================================================
+
+        [TestMethod]
+
+        public void TestStaff_GenderFound()
+
+        {
+            //create an instance of the class we want to create
+            clsStaff Staff = new clsStaff();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 Staff_ID = 1;
+            //invoke the method
+            Found = Staff.Find(Staff_ID);
+            //check the Staff gender
+            if (Staff.Staff_Gender != true) {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        //========================================================================
+
+        [TestMethod]
+
+        public void TestStaff_RoleFound()
+
+        {
+            //create an instance of the class we want to create
+            clsStaff Staff = new clsStaff();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 Staff_ID = 1;
+            //invoke the method
+            Found = Staff.Find(Staff_ID);
+            //check the Staff role
+            if (Staff.Staff_Role != "Chef") {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        //=============================================================================
+        [TestMethod]
+
+        public void TestStaff_StartDateFound()
+
+        {
+            //create an instance of the class we want to create
+            clsStaff Staff = new clsStaff();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 Staff_ID = 1;
+            //invoke the method
+            Found = Staff.Find(Staff_ID);
+            //check the staff start date
+            if (Staff.Staff_StartDate != Convert.ToDateTime("16/01/2022")) {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        //========================================================================
+
+        [TestMethod]
+
+        public void TestStaff_SalaryFound()
+
+        {
+            //create an instance of the class we want to create
+            clsStaff Staff = new clsStaff();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 Staff_ID = 1;
+            //invoke the method
+            Found = Staff.Find(Staff_ID);
+            //check the Staff gender
+            if (Staff.Staff_Salary != 14000.0000) {
+                OK = false;
+            }
+            //test to see that the result is correct
             Assert.IsTrue(OK);
         }
 
