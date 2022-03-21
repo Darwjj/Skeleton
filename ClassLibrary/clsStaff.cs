@@ -5,7 +5,7 @@ namespace ClassLibrary
     public class clsStaff
     {
         private Int32 mStaff_ID;
-        public int Staff_ID {
+        public Int32 Staff_ID {
             get {
                 //this line of code send data out of the property
                 return mStaff_ID;
@@ -38,7 +38,7 @@ namespace ClassLibrary
         private Boolean mStaff_Gender;
 
         //public property for staff gender
-        public bool Staff_Gender {
+        public Boolean Staff_Gender {
             get {
                 //return the private data
                 return mStaff_Gender;
@@ -102,16 +102,31 @@ namespace ClassLibrary
         //=================================================================
 
 
-        public bool Find(int staff_ID)
+        public bool Find(int Staff_ID)
         {
-            mStaff_ID = 1;
-            mStaff_FullName = "Kirtan Patel";
-            mStaff_Gender = true;
-            mStaff_Role = "Chef";
-            mStaff_StartDate = Convert.ToDateTime("16/01/2022");
-            mStaff_Salary = 14000.0000;
-
-            return true;
+            //create an insatance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the staff id to search for
+            DB.AddParameter("@Staff_ID", Staff_ID);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_FilterByStaffID");
+            //if one record is found (there should be either one or zero!)
+            if (DB.Count == 1) {
+                //copy the data from the database to the private data member
+                mStaff_ID = Convert.ToInt32(DB.DataTable.Rows[0]["Staff_ID"]);
+                mStaff_FullName = Convert.ToString(DB.DataTable.Rows[0]["Staff_FullName"]);
+                mStaff_Gender = Convert.ToBoolean(DB.DataTable.Rows[0]["Staff_Gender"]);
+                mStaff_Role = Convert.ToString(DB.DataTable.Rows[0]["Staff_Role"]);
+                mStaff_StartDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Staff_StartDate"]);
+                mStaff_Salary = Convert.ToDouble(DB.DataTable.Rows[0]["Staff_Salary"]);
+                //return that everything worked OK
+                return true;
+            }
+            //if no record was found
+            else {
+                //return false indicating a problem
+                return false;
+            }
         }
 
 
