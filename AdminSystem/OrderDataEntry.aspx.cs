@@ -17,11 +17,19 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instance of clsOrderProcessing
         clsOrderProcessing AOrderProcessing = new clsOrderProcessing();
+
         //capture the number of the order
         AOrderProcessing.OrderNo = textOrderId.Text;
+
         //store number of orders in the session object
         Session["AOrderProcessing"] = AOrderProcessing;
+
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
+    }
+
+    protected void textOrderId_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }

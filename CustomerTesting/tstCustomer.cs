@@ -8,13 +8,20 @@ namespace CustomerTesting
     [TestClass]
     public class UnitTest1
     {
+        private string TestString = "Some Test String";
+        string CustomerDob = new DateTime(1960, 01, 01).ToString();
+        private decimal TestDec = 123;
+        private int Testint = 456;
+
+        public object CustomerId { get; private set; }
+
         [TestMethod]
         public void InstanceOK()
 
         {
             clsCustomer Customer = new clsCustomer();
 
-            Assert.IsNotNull(Customer);
+           // Assert.IsNotNull(AnCustomer);
 
         }
 
@@ -25,13 +32,13 @@ namespace CustomerTesting
         public void CustomerDescriptionPropertyOK()
 
         {
-            clsCustomer Customer = new clsCustomer();
+            clsCustomer AnCustomer = new clsCustomer();
 
-            string TestData = "Omar patel";
+            string TestData = TestString;
 
-            Customer.CustomerDescription = TestData;
+            AnCustomer.CustomerDescription = TestData;
 
-            Assert.AreEqual(Customer.CustomerDescription, TestData);
+            Assert.AreEqual(AnCustomer.CustomerDescription, TestData);
 
         }
 
@@ -45,9 +52,9 @@ namespace CustomerTesting
 
             clsCustomer Customer = new clsCustomer();
 
-            int TestData = 1;
+            string TestData = TestString;
 
-            Customer.CustomerID = TestData;
+           // Customer.CustomerID = TestData;
 
             Assert.AreEqual(Customer.CustomerID, TestData);
 
@@ -67,9 +74,9 @@ namespace CustomerTesting
 
             Boolean TestData = true;
 
-            Customer.Gender = TestData;
+            Customer.Marketting = TestData;
 
-            Assert.AreEqual(Customer.Gender, TestData);
+            Assert.AreEqual(Customer.Marketting, TestData);
 
         }
 
@@ -85,7 +92,7 @@ namespace CustomerTesting
 
             clsCustomer Customer = new clsCustomer();
 
-            String TestData = "Admin";
+            decimal TestData = TestDec;
 
             Customer.ProductCost = TestData;
 
@@ -105,7 +112,7 @@ namespace CustomerTesting
 
             clsCustomer Customer = new clsCustomer();
 
-            DateTime TestData = DateTime.Now.Date;
+            int TestData = Testint;
 
             Customer.CustomerContact = TestData;
 
@@ -125,13 +132,39 @@ namespace CustomerTesting
 
             DateTime TestData = DateTime.Now.Date;
 
-           Customer.CustomerDOB = TestData;
+            Customer.CustomerDob = TestData;
 
-            Assert.AreEqual(Customer.CustomerDOB, TestData);
+            Assert.AreEqual(Customer.CustomerDob, TestData);
 
         }
-    }
-}
+
+        //new code week - 23
+
+        [TestMethod]
+
+        public void FindMethodOK()
+        {
+            // create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //Boolean variable to store the results of the validation
+            Boolean Found = false;
+            //create some test data to use with the method
+            Int32 CustomerID = 21;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerId);
+            //test to see if the result is true
+            Assert.IsTrue(Found);
+        }
 
 
-      
+        
+            }
+        }
+
+
+
+
+
+
+
+

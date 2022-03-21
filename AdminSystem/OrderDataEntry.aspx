@@ -11,7 +11,7 @@
         <div>
             <asp:Label ID="lblOrderId" runat="server" Text="Order Id"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="textOrderId" runat="server" Height="25px" Width="141px"></asp:TextBox>
+            <asp:TextBox ID="textOrderId" runat="server" Height="25px" Width="141px" OnTextChanged="textOrderId_TextChanged"></asp:TextBox>
             <p>
                 <asp:Label ID="lblOrderDescription" runat="server" Text="Order Description"></asp:Label>
 &nbsp;<asp:TextBox ID="TextBox1" runat="server" Height="25px" Width="141px"></asp:TextBox>
