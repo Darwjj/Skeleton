@@ -26,7 +26,7 @@ namespace StockTesting
 
             clsStock AStock = new clsStock();
 
-            string StockId = "1101";
+            Int32 StockId = 1;
             AStock.StockId = StockId;
 
             Assert.AreEqual(AStock.StockId, StockId);
@@ -36,13 +36,13 @@ namespace StockTesting
         //=====================================================
 
         [TestMethod]
-        
+
         public void ProductCatogeryPropertyOK()
         {
 
             clsStock AStock = new clsStock();
 
-            string ProductCategory = "Beverage";
+            string ProductCategory = "Mocktails";
             AStock.ProductCategory = ProductCategory;
 
             Assert.AreEqual(AStock.ProductCategory, ProductCategory);
@@ -57,7 +57,7 @@ namespace StockTesting
 
             clsStock AStock = new clsStock();
 
-            string Quantity = "";
+            Int32 Quantity = 12;
             AStock.Quantity = Quantity;
 
             Assert.AreEqual(AStock.Quantity, Quantity);
@@ -70,7 +70,7 @@ namespace StockTesting
         {
 
             clsStock AStock = new clsStock();
-            string Date = "12/12/22";
+            DateTime Date = Convert.ToDateTime("09/03/2022");
             AStock.Date = Date;
             Assert.AreEqual(AStock.Date, Date);
 
@@ -83,7 +83,7 @@ namespace StockTesting
 
             clsStock AStock = new clsStock();
 
-            string Available = "true";
+            bool Available = true;
             AStock.Available = Available;
             Assert.AreEqual(AStock.Available, Available);
 
@@ -95,12 +95,169 @@ namespace StockTesting
 
             clsStock AStock = new clsStock();
 
-            string ProductName = "Coke";
+            string ProductName = "Virgin Mojito";
             AStock.ProductName = ProductName;
 
             Assert.AreEqual(AStock.ProductName, ProductName);
 
         }
+        //=============================================================
+        //==================================                                                    Find and Found method                                   ============================
+        [TestMethod]
+        public void FindMethodOk()
+        {
+
+            clsStock AStock = new clsStock();
+
+            Boolean Found = false;
+
+            Int32 StockId = 1;
+            Found = AStock.Find(StockId);
+
+            Assert.IsTrue(Found);
+
+        }
+
+        //===========================================
+        //===========================================
+
+        [TestMethod]
+        public void TestStockIdFound()
+        {
+
+            clsStock AStock = new clsStock();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            Int32 StockId = 6;
+
+            Found = AStock.Find(StockId);
+
+            if (AStock.StockId != 6) {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        //=================================================
+        //=================================================
+
+        [TestMethod]
+        public void TestProductCategoryFound()
+        {
+
+            clsStock AStock = new clsStock();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            Int32 StockId = 6;
+
+            Found = AStock.Find(StockId);
+
+            if (AStock.ProductCategory != "Mocktails") {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+
+        //=================================================
+        //=================================================
+
+        [TestMethod]
+        public void TestQuantityFound()
+        {
+
+            clsStock AStock = new clsStock();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            Int32 StockId = 6;
+
+            Found = AStock.Find(StockId);
+
+            if (AStock.Quantity != 3) {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        //=================================================
+        //=================================================
+        [TestMethod]
+        public void TestDateFound()
+        {
+
+            clsStock AStock = new clsStock();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            Int32 StockId = 6;
+
+            Found = AStock.Find(StockId);
+
+            if (AStock.Date != Convert.ToDateTime("01/03/2022")) {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        //=================================================
+        //=================================================
+        [TestMethod]
+        public void TestAvailableFound()
+        {
+
+            clsStock AStock = new clsStock();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            Int32 StockId = 6;
+
+            Found = AStock.Find(StockId);
+
+            if (AStock.Available != true) {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        //=================================================
+        //=================================================
+        [TestMethod]
+        public void TestProductNameFound()
+        {
+
+            clsStock AStock = new clsStock();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            Int32 StockId = 6;
+
+            Found = AStock.Find(StockId);
+
+            if (AStock.ProductName != "Virgin Mojito") {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
     }
 }
-

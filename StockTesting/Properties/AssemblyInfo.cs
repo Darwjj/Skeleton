@@ -1,6 +1,8 @@
+using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Data;
 
 [assembly: AssemblyTitle("StockTesting")]
 [assembly: AssemblyDescription("")]
@@ -22,12 +24,96 @@ using System.Runtime.InteropServices;
 namespace StockTesting
 {
     class clsStock
+
     {
-        public string ProductCategory { get; internal set; }
-        public string Quantity { get; internal set; }
-        public string Date { get; internal set; }
-        public string Available { get; internal set; }
-        public string ProductName { get; internal set; }
-        public string StockId { get; internal set; }
+        private Int32 mStockId;
+        public Int32 StockId {
+            get {
+                return mStockId;
+            }
+            set {
+                mStockId = value;
+            }
+        }
+
+        private string mProductCategory;
+        public string ProductCategory {
+            get {
+                return mProductCategory;
+            }
+            set {
+                mProductCategory = value;
+            }
+        }
+
+        private Int32 mQuantity;
+        public Int32 Quantity {
+            get {
+                return mQuantity;
+            }
+            set {
+                mQuantity = value;
+            }
+        }
+        private DateTime mDate;
+        public DateTime Date {
+            get {
+                return mDate;
+            }
+            set {
+                mDate = value;
+            }
+        }
+
+        private Boolean mAvailable;
+        public bool Available {
+            get {
+                return mAvailable;
+            }
+            set {
+                mAvailable = value;
+            }
+        }
+
+        private string mProductName;
+        public string ProductName {
+            get {
+                return mProductName;
+            }
+            set {
+                mProductName = value;
+            }
+        }
+
+
+        public bool Find(int StockId)
+        {
+
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@StockId", StockId);
+            DB.Execute("sproc_tbStock_FilterByStockId");
+
+            if (DB.Count == 1) {
+
+                mStockId = Convert.ToInt32(DB.DataTable.Rows[0]["StockId"]);
+                mProductCategory = Convert.ToString(DB.DataTable.Rows[0]["ProductCategory"]);
+                mQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["Quantity"]);
+                mDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Date"]);
+                mAvailable = Convert.ToBoolean(DB.DataTable.Rows[0]["Available"]);
+                mProductName = Convert.ToString(DB.DataTable.Rows[0]["ProductName"]);
+                return true;
+            }
+            else {
+                return false;
+
+            }
+
+        }
+
+        private clsDataConnection clsDataConnection()
+        {
+            throw new NotImplementedException();
+        }
     }
+
 }
