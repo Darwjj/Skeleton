@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 
 namespace ClassLibrary
 {
@@ -104,33 +105,75 @@ namespace ClassLibrary
 
         public bool Find(int Staff_ID)
         {
-            //create an insatance of the data connection
+
             clsDataConnection DB = new clsDataConnection();
-            //add the parameter for the staff id to search for
             DB.AddParameter("@Staff_ID", Staff_ID);
-            //execute the stored procedure
             DB.Execute("sproc_tblStaff_FilterByStaffID");
+
             //if one record is found (there should be either one or zero!)
             if (DB.Count == 1) {
-                //copy the data from the database to the private data member
+
                 mStaff_ID = Convert.ToInt32(DB.DataTable.Rows[0]["Staff_ID"]);
                 mStaff_FullName = Convert.ToString(DB.DataTable.Rows[0]["Staff_FullName"]);
                 mStaff_Gender = Convert.ToBoolean(DB.DataTable.Rows[0]["Staff_Gender"]);
                 mStaff_Role = Convert.ToString(DB.DataTable.Rows[0]["Staff_Role"]);
                 mStaff_StartDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Staff_StartDate"]);
                 mStaff_Salary = Convert.ToDouble(DB.DataTable.Rows[0]["Staff_Salary"]);
-                //return that everything worked OK
+
+                //always return true
                 return true;
             }
-            //if no record was found
             else {
-                //return false indicating a problem
                 return false;
             }
         }
 
+        //=================================================================
+
+        public string Valid(string staff_FullName, string staff_Role, string staff_StartDate)
+        {
+
+            string Error = "";
+            DateTime DateTemp;
+            //===================Validation for STAFF FULL NAME===========================================
+            if (staff_FullName.Length == 0) {
+                Error = Error + "The Staff Full Name may not be blank : ";
+            }
+
+            if (staff_FullName.Length > 30) {
+                Error = Error + "The Staff Full Name must be less than 30 : ";
+            }
+            //==========================VALIDATION FOR STAFF ROLE====================================
+            if (staff_Role.Length == 0) {
+                Error = Error + "The Staff Role may not be blank : ";
+            }
+
+            if (staff_Role.Length > 26) {
+                Error = Error + "The Staff Role must be less than 26 : ";
+            }
+            //==============VALIDATION FOR STAFF HIRE DATE=======================
+            try {
+                DateTemp = Convert.ToDateTime(staff_StartDate);
+                if (DateTemp > DateTime.Now.Date) {
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch {
+                Error = Error + "The date is not valid : ";
+            }
+
+
+            return Error;
+        }
+
+
 
     }
 
-
 }
+
+
+        
+
+
+

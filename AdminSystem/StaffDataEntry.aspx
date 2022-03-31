@@ -12,6 +12,8 @@
             <asp:Label ID="lblStaffId" runat="server" Text="StaffId"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtStaffID" runat="server"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btn_Find" runat="server" OnClick="btn_Find_Click" Text="Find" />
         </div>
         <p>
             <asp:Label ID="lblStaffFullName" runat="server" Text="Staff Full Name"></asp:Label>
@@ -22,8 +24,8 @@
             <asp:Label ID="lblStaffGender" runat="server" Text="Staff Gender"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:DropDownList ID="ddlStaffGender" runat="server" width="128px">
-                <asp:ListItem>Female</asp:ListItem>
-                <asp:ListItem>Male</asp:ListItem>
+                <asp:ListItem Value="false">Female</asp:ListItem>
+                <asp:ListItem Value="true">Male</asp:ListItem>
             </asp:DropDownList>
         </p>
         <p>
