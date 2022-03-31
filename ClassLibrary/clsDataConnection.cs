@@ -195,5 +195,4 @@ public class clsDataConnection
             dataTable = value;
         }
     }
-}
 

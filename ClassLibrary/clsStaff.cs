@@ -6,7 +6,7 @@ namespace ClassLibrary
     public class clsStaff
     {
         private Int32 mStaff_ID;
-        public int Staff_ID {
+        public Int32 Staff_ID {
             get {
                 //this line of code send data out of the property
                 return mStaff_ID;
@@ -39,7 +39,7 @@ namespace ClassLibrary
         private Boolean mStaff_Gender;
 
         //public property for staff gender
-        public bool Staff_Gender {
+        public Boolean Staff_Gender {
             get {
                 //return the private data
                 return mStaff_Gender;
@@ -105,24 +105,26 @@ namespace ClassLibrary
 
         public bool Find(int Staff_ID)
         {
+
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@Staff_ID", Staff_ID);
             DB.Execute("sproc_tblStaff_FilterByStaffID");
+
+            //if one record is found (there should be either one or zero!)
             if (DB.Count == 1) {
-                //set the private data members to the test data value
+
                 mStaff_ID = Convert.ToInt32(DB.DataTable.Rows[0]["Staff_ID"]);
                 mStaff_FullName = Convert.ToString(DB.DataTable.Rows[0]["Staff_FullName"]);
                 mStaff_Gender = Convert.ToBoolean(DB.DataTable.Rows[0]["Staff_Gender"]);
                 mStaff_Role = Convert.ToString(DB.DataTable.Rows[0]["Staff_Role"]);
                 mStaff_StartDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Staff_StartDate"]);
                 mStaff_Salary = Convert.ToDouble(DB.DataTable.Rows[0]["Staff_Salary"]);
+
                 //always return true
                 return true;
             }
             else {
                 return false;
-
-
             }
         }
 

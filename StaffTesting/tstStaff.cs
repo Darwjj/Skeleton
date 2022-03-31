@@ -32,7 +32,7 @@ namespace StaffTesting
 
             clsStaff Staff = new clsStaff();
 
-            String TestData = "Akshat Cala";
+            String TestData = "Kirtan Patel";
 
             Staff.Staff_FullName = TestData;
 
@@ -92,7 +92,7 @@ namespace StaffTesting
 
             clsStaff Staff = new clsStaff();
 
-            String TestData = "Admin";
+            String TestData = "Chef";
 
             Staff.Staff_Role = TestData;
 
@@ -132,7 +132,7 @@ namespace StaffTesting
 
             clsStaff Staff = new clsStaff();
 
-            Double TestData = 200.03;
+            Double TestData = 14000.0000;
 
             Staff.Staff_Salary = TestData;
 
