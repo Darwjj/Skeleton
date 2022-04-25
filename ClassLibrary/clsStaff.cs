@@ -151,7 +151,7 @@ namespace ClassLibrary
             if (staff_Role.Length > 26) {
                 Error = Error + "The Staff Role must be less than 26 : ";
             }
-            //==============VALIDATION FOR STAFF HIRE DATE=======================
+            //==============VALIDATION FOR STAFF Start DATE=======================
             try {
                 DateTemp = Convert.ToDateTime(staff_StartDate);
                 if (DateTemp > DateTime.Now.Date) {
