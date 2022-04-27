@@ -21,6 +21,10 @@ public partial class _1Viewer : System.Web.UI.Page
         Response.Write("Available" + " = " + AStock.Available + "<br><br>");
         Response.Write("ProductName" + " = " + AStock.ProductName + "<br><br>");
 
+        //--------------------------------------------
+
+
+
     }
 
 

@@ -1,13 +1,14 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using ClassLibrary;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using StockTesting;
+
 
 namespace StockTesting
 {
     [TestClass]
     public class tstStock
     {
-
-        //=========
 
 
 
@@ -19,7 +20,7 @@ namespace StockTesting
         }
 
 
-        //====================================================
+
         [TestMethod]
         public void StockIdPropertyOK()
         {
@@ -33,7 +34,7 @@ namespace StockTesting
 
         }
 
-        //=====================================================
+
 
         [TestMethod]
 
@@ -42,14 +43,14 @@ namespace StockTesting
 
             clsStock AStock = new clsStock();
 
-            string ProductCategory = "Mocktails";
+            string ProductCategory = "Starters";
             AStock.ProductCategory = ProductCategory;
 
             Assert.AreEqual(AStock.ProductCategory, ProductCategory);
 
         }
 
-        //====================================================================
+
 
         [TestMethod]
         public void QuantityPropertyOK()
@@ -57,25 +58,25 @@ namespace StockTesting
 
             clsStock AStock = new clsStock();
 
-            Int32 Quantity = 12;
+            Int32 Quantity = 3;
             AStock.Quantity = Quantity;
 
             Assert.AreEqual(AStock.Quantity, Quantity);
 
         }
 
-        //===========================================================
+
         [TestMethod]
         public void DatePropertyOK()
         {
 
             clsStock AStock = new clsStock();
-            DateTime Date = Convert.ToDateTime("09/03/2022");
+            DateTime Date = Convert.ToDateTime("02/01/2022");
             AStock.Date = Date;
             Assert.AreEqual(AStock.Date, Date);
 
         }
-        // ===================================================================
+
 
         [TestMethod]
         public void AvailablePropertyOK()
@@ -83,26 +84,31 @@ namespace StockTesting
 
             clsStock AStock = new clsStock();
 
-            bool Available = true;
-            AStock.Available = Available;
-            Assert.AreEqual(AStock.Available, Available);
+            Boolean TestData = true;
+            AStock.Available = TestData;
+            Assert.AreEqual(AStock.Available, TestData);
 
         }
-        //==================================================================== 
+
         [TestMethod]
         public void ProductNamePropertyOK()
         {
 
             clsStock AStock = new clsStock();
 
-            string ProductName = "Virgin Mojito";
+            string ProductName = "The ultimate 'cheese cake'";
             AStock.ProductName = ProductName;
 
             Assert.AreEqual(AStock.ProductName, ProductName);
 
         }
-        //=============================================================
-        //==================================                                                    Find and Found method                                   ============================
+
+
+       
+        //==================================    Find and Found method            ============================
+
+
+
         [TestMethod]
         public void FindMethodOk()
         {
@@ -119,7 +125,7 @@ namespace StockTesting
         }
 
         //===========================================
-        //===========================================
+    
 
         [TestMethod]
         public void TestStockIdFound()
@@ -131,11 +137,11 @@ namespace StockTesting
 
             Boolean OK = true;
 
-            Int32 StockId = 6;
+            Int32 StockId = 1;
 
             Found = AStock.Find(StockId);
 
-            if (AStock.StockId != 6) {
+            if (AStock.StockId != 1) {
                 OK = false;
             }
 
@@ -143,7 +149,7 @@ namespace StockTesting
         }
 
         //=================================================
-        //=================================================
+        
 
         [TestMethod]
         public void TestProductCategoryFound()
@@ -155,11 +161,11 @@ namespace StockTesting
 
             Boolean OK = true;
 
-            Int32 StockId = 6;
+            Int32 StockId = 1;
 
             Found = AStock.Find(StockId);
 
-            if (AStock.ProductCategory != "Mocktails") {
+            if (AStock.ProductCategory != "Soft Drinks") {
                 OK = false;
             }
 
@@ -168,7 +174,7 @@ namespace StockTesting
 
 
         //=================================================
-        //=================================================
+    
 
         [TestMethod]
         public void TestQuantityFound()
@@ -180,11 +186,11 @@ namespace StockTesting
 
             Boolean OK = true;
 
-            Int32 StockId = 6;
+            Int32 StockId = 1;
 
             Found = AStock.Find(StockId);
 
-            if (AStock.Quantity != 3) {
+            if (AStock.Quantity != 2) {
                 OK = false;
             }
 
@@ -192,7 +198,7 @@ namespace StockTesting
         }
 
         //=================================================
-        //=================================================
+
         [TestMethod]
         public void TestDateFound()
         {
@@ -203,11 +209,11 @@ namespace StockTesting
 
             Boolean OK = true;
 
-            Int32 StockId = 6;
+            Int32 StockId = 1;
 
             Found = AStock.Find(StockId);
 
-            if (AStock.Date != Convert.ToDateTime("01/03/2022")) {
+            if (AStock.Date != Convert.ToDateTime("12/12/2021")) {
                 OK = false;
             }
 
@@ -215,7 +221,7 @@ namespace StockTesting
         }
 
         //=================================================
-        //=================================================
+   
         [TestMethod]
         public void TestAvailableFound()
         {
@@ -226,7 +232,7 @@ namespace StockTesting
 
             Boolean OK = true;
 
-            Int32 StockId = 6;
+            Int32 StockId = 1;
 
             Found = AStock.Find(StockId);
 
@@ -238,7 +244,7 @@ namespace StockTesting
         }
 
         //=================================================
-        //=================================================
+ 
         [TestMethod]
         public void TestProductNameFound()
         {
@@ -249,11 +255,11 @@ namespace StockTesting
 
             Boolean OK = true;
 
-            Int32 StockId = 6;
+            Int32 StockId = 1;
 
             Found = AStock.Find(StockId);
 
-            if (AStock.ProductName != "Virgin Mojito") {
+            if (AStock.ProductName != "Coke") {
                 OK = false;
             }
 
@@ -261,3 +267,4 @@ namespace StockTesting
         }
     }
 }
+
