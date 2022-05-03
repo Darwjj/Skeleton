@@ -198,7 +198,7 @@ namespace StaffTesting
             //invoke the method
             Found = Staff.Find(Staff_ID);
             //check the Staff full name
-            if (Staff.Staff_FullName != "Kirtan Patel") {
+            if (Staff.Staff_FullName != "Akshat Cala") {
                 OK = false;
             }
             //test to see that the result is correct
@@ -248,7 +248,7 @@ namespace StaffTesting
             //invoke the method
             Found = Staff.Find(Staff_ID);
             //check the Staff role
-            if (Staff.Staff_Role != "Chef") {
+            if (Staff.Staff_Role != "Admin") {
                 OK = false;
             }
             //test to see that the result is correct
@@ -272,7 +272,7 @@ namespace StaffTesting
             //invoke the method
             Found = Staff.Find(Staff_ID);
             //check the staff start date
-            if (Staff.Staff_StartDate != Convert.ToDateTime("16/01/2022")) {
+            if (Staff.Staff_StartDate != Convert.ToDateTime("03/02/2022")) {
                 OK = false;
             }
             //test to see that the result is correct
@@ -297,7 +297,7 @@ namespace StaffTesting
             //invoke the method
             Found = Staff.Find(Staff_ID);
             //check the Staff gender
-            if (Staff.Staff_Salary != 14000.0000) {
+            if (Staff.Staff_Salary != 10000.0000) {
                 OK = false;
             }
             //test to see that the result is correct
