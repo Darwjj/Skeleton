@@ -29,6 +29,7 @@ namespace ClassLibrary
 
             set {
                 //we shall do this later
+
             }
         }
 
@@ -44,37 +45,88 @@ namespace ClassLibrary
             }
         }
 
-        public clsStaffCollection()
+
+            public int Add()
+            {
+                //add a new record to the database based on the values of ThisCustomer
+                //connect to the database
+                clsDataConnection DB = new clsDataConnection();
+                //set the parameters for the stored procedure
+                DB.AddParameter("@Staff_FullName", mThisStaff.Staff_FullName);
+                DB.AddParameter("@Staff_Gender", mThisStaff.Staff_Gender);
+                DB.AddParameter("@Staff_Role", mThisStaff.Staff_Role);
+                DB.AddParameter("@Staff_StartDate", mThisStaff.Staff_StartDate);
+                DB.AddParameter("@Staff_Salary", mThisStaff.Staff_Salary);
+                //execute the query returning the primary key value
+                return DB.Execute("sproc_tblStaff_Insert");
+            }
+
+
+        //============Update Method ====================================
+        public void Update()
         {
-            //var for the index
-            Int32 Index = 0;
-            //var to store the record count
-            Int32 RecordCount = 0;
-            //object for data connection
             clsDataConnection DB = new clsDataConnection();
-            //execute the stored procedure
-            DB.Execute("sproc_tblStaff_SelectAll");
-            //get the count of records
+
+            DB.AddParameter("@Staff_ID", mThisStaff.Staff_ID);
+            DB.AddParameter("@Staff_FullName", mThisStaff.Staff_FullName);
+            DB.AddParameter("@Staff_Gender", mThisStaff.Staff_Gender);
+            DB.AddParameter("@Staff_Role", mThisStaff.Staff_Role);
+            DB.AddParameter("@Staff_StartDate", mThisStaff.Staff_StartDate);
+            DB.AddParameter("@Staff_Salary", mThisStaff.Staff_Salary);
+            DB.Execute("sproc_tblStaff_Update");
+        }
+
+        //============Delete Method ====================================
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@Staff_ID", mThisStaff.Staff_ID);
+            DB.Execute("sproc_tblStaff_Delete");
+        }
+
+        //============RportByFullNameMethod ====================================
+        public void ReportByFullName(string Staff_FullName)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@Staff_FullName", Staff_FullName);
+            DB.Execute("sproc_tblStaff_FilterByStaffFullName");
+            PopulateArray(DB);
+        }
+        void PopulateArray(clsDataConnection DB)
+        {
+            Int32 Index = 0;
+
+            Int32 RecordCount;
             RecordCount = DB.Count;
-            //clear the private array list
             mStaffList = new List<clsStaff>();
-            //while there are recoreds to process
+
+
+
             while (Index < RecordCount) {
-                //create a blank full name
                 clsStaff Staff = new clsStaff();
-                //read in the fields from the current record
-                Staff.Staff_Role = Convert.ToString(DB.DataTable.Rows[Index]["Staff_Role"]);
-                Staff.Staff_StartDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["Staff_StartDate"]);
+                Staff.Staff_ID = Convert.ToInt32(DB.DataTable.Rows[Index]["Staff_ID"]);
                 Staff.Staff_FullName = Convert.ToString(DB.DataTable.Rows[Index]["Staff_FullName"]);
                 Staff.Staff_Gender = Convert.ToBoolean(DB.DataTable.Rows[Index]["Staff_Gender"]);
-                Staff.Staff_ID = Convert.ToInt32(DB.DataTable.Rows[Index]["Staff_ID"]);
+                Staff.Staff_Role = Convert.ToString(DB.DataTable.Rows[Index]["Staff_Role"]);
+                Staff.Staff_StartDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["Staff_StartDate"]);
                 Staff.Staff_Salary = Convert.ToDouble(DB.DataTable.Rows[Index]["Staff_Salary"]);
-                //add the record to the private data member
+
                 mStaffList.Add(Staff);
-                //point at the next record
                 Index++;
+
+
             }
         }
-    }
 
+        public clsStaffCollection()
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.Execute("Sproc_tblStaff_SelectAll");
+            PopulateArray(DB);
+
+        }
+
+    }
 }
