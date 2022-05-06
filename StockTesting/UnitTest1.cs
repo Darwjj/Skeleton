@@ -26,10 +26,10 @@ namespace StockTesting
 
             clsStock AStock = new clsStock();
 
-            string StockId = "1101";
+            string StockId = "2001";
             AStock.StockId = StockId;
 
-            Assert.AreEqual(AStock.StockId, StockId);
+            Assert.AreEqual(AStock.StockId, StockId);  
 
         }
 
@@ -70,7 +70,7 @@ namespace StockTesting
         {
 
             clsStock AStock = new clsStock();
-            string Date = "12/12/22";
+            string Date = "12/12/21";
             AStock.Date = Date;
             Assert.AreEqual(AStock.Date, Date);
 
